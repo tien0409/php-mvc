@@ -41,7 +41,7 @@ $router->add('signup/create', ['controller' => 'Signup', 'action' => 'create']);
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('books', ['controller' => 'Books', 'action' => 'index']);
 $router->add('books/detail/\d+', ['controller' => 'Books', 'action' => 'detail']);
-$router->add('books/detail/\d+/read', ['controller' => 'Books', 'action' => 'read']);
+$router->add('books/read/\d+', ['controller' => 'Books', 'action' => 'read']);
 $router->add('cart', ['controller' => 'Cart', 'action' => 'index']);
 $router->add('profile', ['controller' => 'Profile', 'action' => 'index']);
 $router->add('find/\w+', ['controller' => 'FindBook', 'action' => 'index']);

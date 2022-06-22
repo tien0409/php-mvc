@@ -27,6 +27,10 @@ class Books {
     }
 
     public function read() {
-        View::renderTemplate('Books/read.twig', []);
+        $book = new Book();
+        $array = explode('/', $_SERVER['REQUEST_URI']);
+        $bookId = end($array);
+        $_book = $book->findByID($bookId);
+        View::renderTemplate('Books/read.twig', ['books' => $_book->book_details]);
     }
 }
