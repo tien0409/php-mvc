@@ -1,0 +1,7 @@
+.wrapper {
+    background-color: #ebf1fb;
+}
+
+.sidebar {
+    height: calc(100vh - var(--header-height));
+}

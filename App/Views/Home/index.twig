@@ -1,0 +1,59 @@
+{% extends 'base.twig' %}
+
+{% block head %}
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+
+{% block body %}
+
+    <div id="carouselExampleControls" class="carousel slide h-screen-50" data-bs-ride="carousel">
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+                <img src="/images/home-banner.jpg" class="image" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="mt-5">
+        <div class="container">
+            {% for group in groups %}
+                <div class="group">
+                    <div class="group__info">
+                        <h2 class="group__title">HightLighted</h2>
+                        <a href="/abc">Xem thêm</a>
+                    </div>
+
+                    <div class="row g-5">
+                        {% for book in books %}
+                            <a href="/books/detail/2" class="course__wrapper col col-12 col-sm-6 col-md-3">
+                                <div class="course">
+                                    <img src="/images/course-image-test.jpg" alt="course" class="img-fluid">
+                                    <div class="course__info">
+                                        <h3 class="course__name">Course Name</h3>
+                                        <p class="course__description">Description</p>
+                                        <div class="prices">
+                                            <div class="price--discount">500000đ</div>
+                                            <div class="price text-primary">200000đ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+CREATE DATABASE QLMS;
+USE QLMS;
+
+create table Users
+(
+    id         int auto_increment not null primary key,
+    email       varchar(30) not null,
+    username   varchar(20)        not null,
+    first_name nvarchar(20)       not null,
+    last_name  nvarchar(20)       not null,
+    passwords  varchar(24)        not null,
+    created_at datetime default now(),
+    updated_at datetime default now(),
+    deleted_at datetime default now()
+);
+
+create table Remembered_logins (
+    token_hash varchar(64) not null,
+    user_id int not null,
+    expired_at datetime not null,
+    foreign key (user_id) references Users(id)
+);

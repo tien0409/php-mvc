@@ -1,0 +1,80 @@
+{% extends'base.twig' %}
+
+{% block head %}
+    <title>Detail</title>
+    <link rel="stylesheet" href="/css/books/detail.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col col-8">
+                <div class="section overview">
+                    <h3 class="book__name fw-bold fs-2">Teen sach</h3>
+                    <p>Description sach</p>
+                    <div class="types">
+                        <div class="type">Toan</div>
+                        <div class="type">Ly</div>
+                        <div class="type">Hoa</div>
+                    </div>
+                </div>
+
+                <div class="section detail">
+                    <div class="book__intro">
+                        <h4 class="fw-bold fs-3">Giới thiệu sách</h4>
+                        <p>Content gioi thieu saach</p>
+                    </div>
+                    <div class="book__attachments">
+                        <h4 class="fw-bold fs-3">Tài liệu đính kèm</h4>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img src="/images/course-image-test.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="text-primary fw-bolder fs-4">1.000.000d</div>
+                        <div class="w-100 d-flex gap-3 mt-4">
+                            <button class="w-50 btn btn-light">Mua ngay</button>
+                            <button class="w-50 btn btn-danger">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses__related">
+            <div class="group">
+                <div class="group__info">
+                    <h2 class="group__title">Những cuốn sách cùng chủ đề</h2>
+                </div>
+
+                <div class="swiper my__swiper">
+                    <div class="swiper-wrapper">
+                        {% for book in books %}
+                            <div class="swiper-slide">
+                                <div class="course">
+                                    <img src="/images/course-image-test.jpg" alt="course" class="img-fluid">
+                                    <div class="course__info">
+                                        <h3 class="course__name">Course Name</h3>
+                                        <p class="course__description">Description</p>
+                                        <div class="prices">
+                                            <div class="price--discount">500000đ</div>
+                                            <div class="price text-primary">200000đ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="/js/books/detail.js"></script>
+{% endblock %}

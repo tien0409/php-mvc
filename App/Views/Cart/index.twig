@@ -1,0 +1,57 @@
+{% extends 'base.twig' %}
+
+{% block head %}
+    <title>Cart</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="fs-2 fw-bold">Giỏ hàng</h2>
+        <hr>
+        <div class="mt-4">
+            <h4>Đơn hàng của bạn</h4>
+            <div>0 sản phẩm trong giỏ hàng</div>
+            <div class="cart__list">
+                <div class="cart__item d-flex g-1">
+                    <img width="200" height="140" src="/images/course-image-test.jpg" alt="">
+                    <div>
+                        <h5>Khoa hoc name</h5>
+                        <p>description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses__related">
+            <div class="group">
+                <div class="group__info">
+                    <h4>Những cuốn sách cùng chủ đề</h4>
+                </div>
+
+                <div class="swiper my__swiper">
+                    <div class="swiper-wrapper">
+                        {% for book in books %}
+                            <div class="swiper-slide">
+                                <div class="course">
+                                    <img src="/images/course-image-test.jpg" alt="course" class="img-fluid">
+                                    <div class="course__info">
+                                        <h3 class="course__name">Course Name</h3>
+                                        <p class="course__description">Description</p>
+                                        <div class="prices">
+                                            <div class="price--discount">500000đ</div>
+                                            <div class="price text-primary">200000đ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="/js/cart.js"></script>
+{% endblock %}

@@ -1,0 +1,8 @@
+.auth__wrapper {
+    background: url("/images/auth-bg.png");
+}
+
+.auth__content {
+    width: 68%;
+    height: 75%;
+}

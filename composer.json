@@ -1,0 +1,13 @@
+{
+  "require": {
+    "twig/twig": "~2.0",
+    "ext-mysqli": "*",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "App\\": "App/"
+    }
+  }
+}
