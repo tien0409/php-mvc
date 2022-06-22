@@ -22,7 +22,8 @@ class Books {
                 'description' => $_book->description,
                 'price' => $_book->getPrice(),
                 'banner_link' => $_book->getLink(),
-                'books' => $allbook
+                'books' => $allbook,
+                'id' => $_book->id
             ]);
     }
 

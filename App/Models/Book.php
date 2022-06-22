@@ -131,7 +131,7 @@ class Book extends Model
         if ($id == null) {
             $id = $this->id;
         }
-        $sql = "SELECT * FROM book WHERE book.id = :id";
+        $sql = "SELECT * FROM books WHERE books.id = :id";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":id", $id);
@@ -149,7 +149,7 @@ class Book extends Model
 
     public function findByName($name) {
         $name = "%" . $name . "%";
-        $sql = "SELECT * FROM book WHERE book.name LIKE :name";
+        $sql = "SELECT * FROM books WHERE books.name LIKE :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":name", $name);
@@ -168,7 +168,7 @@ class Book extends Model
     }
 
     public function findAll() {
-        $sql = "SELECT * FROM book";
+        $sql = "SELECT * FROM books";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
