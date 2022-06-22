@@ -11,24 +11,11 @@
             <div class="aspect">
                 <div class="aspect__inner">
                     <div id="flipbook">
+                        {% for book in books %}
                         <div class="page"><img
-                                    src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/01.jpg"
+                                    src="{{ book.page_link }}"
                                     draggable="false" alt=""/></div>
-                        <div class="page"><img
-                                    src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/02.jpg"
-                                    draggable="false" alt=""/></div>
-                        <div class="page"><img
-                                    src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/03.jpg"
-                                    draggable="false" alt=""/></div>
-                        <div class="page"><img
-                                    src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/04.jpg"
-                                    draggable="false" alt=""/></div>
-                        <div class="page"><img
-                                    src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/05.jpg"
-                                    draggable="false" alt=""/></div>
-                        <div class="page"><img
-                                    src="https://raw.github.com/blasten/turn.js/master/demos/magazine/pages/06.jpg"
-                                    draggable="false" alt=""/></div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

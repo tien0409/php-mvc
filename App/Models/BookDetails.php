@@ -4,9 +4,9 @@ namespace App\Models;
 
 class BookDetails
 {
-    private $id;
-    private $page_link;
-    private $book;
+    public $id;
+    public $page_link;
+    public $book;
 
     /**
      * @return mixed
