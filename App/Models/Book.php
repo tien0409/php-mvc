@@ -127,6 +127,20 @@ class Book extends Model
         $this->banner_link = $link;
     }
 
+    public static function insertBook($data) {
+        $sql = 'INSERT INTO Books (name, description, banner_link, overview, price) VALUES (:name, :description, :banner_link, :overview, :price);';
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(":description", $data['description'], PDO::PARAM_STR);
+        $stmt->bindValue(":name", $data['name'], PDO::PARAM_STR);
+        $stmt->bindValue(":banner_link", $data['book_banner']['url'], PDO::PARAM_STR);
+        $stmt->bindValue(":overview", $data['overview'], PDO::PARAM_STR);
+        $stmt->bindValue(":price", $data['price'], PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $db->lastInsertId();
+    }
+
     public function findByID($id) {
         if ($id == null) {
             $id = $this->id;
@@ -167,7 +181,7 @@ class Book extends Model
         return $users;
     }
 
-    public function findAll() {
+    public static function findAll() {
         $sql = "SELECT * FROM Books";
         $db = static::getDB();
         $stmt = $db->prepare($sql);

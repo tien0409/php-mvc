@@ -16,7 +16,7 @@
                 <div class="section detail">
                     <div class="book__intro">
                         <h4 class="fw-bold fs-3">Giới thiệu sách</h4>
-                        <p>{{ description }}</p>
+                        <p>{{ description | raw }}</p>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <img src="{{ banner_link }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="w-100 d-flex gap-3 mt-4">
-                            <a href="{{ "/books/read/#{id}" }}" class="btn__add-to-cart w-50 btn btn-danger">Đọc sách</a>
+                            <a href="{{ "/books/read/#{id}" }}" class="btn__add-to-cart w-100 btn btn-danger">Đọc sách</a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                                         <img src="{{ book.link }}" alt="course" class="img-fluid">
                                         <div class="course__info">
                                             <h3 class="course__name">{{ book.name }}</h3>
-                                            <p class="course__description">{{ book.description }}</p>
+                                            <p class="course__description">{{ book.description | raw }}</p>
                                         </div>
                                     </div>
                                 </a>

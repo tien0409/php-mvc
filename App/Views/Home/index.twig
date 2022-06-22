@@ -34,7 +34,7 @@
                                     <img src="{{ book.link }}" alt="course" class="image">
                                     <div class="course__info">
                                         <h3 class="course__name">{{ book.name }}</h3>
-                                        <p class="course__description">{{ book.description }}</p>
+                                        <p class="course__description">{{ book.description | raw }}</p>
                                     </div>
                                 </div>
                             </a>

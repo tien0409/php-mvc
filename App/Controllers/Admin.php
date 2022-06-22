@@ -3,10 +3,9 @@
 namespace App\Controllers;
 
 use App\Auth;
-use App\Controllers\Authenticated;
+use App\Models\Book;
+use App\Models\BookDetails;
 use Core\View;
-use Cloudinary\Api\Upload\UploadApi;
-use Cloudinary\Configuration\Configuration;
 
 class Admin extends Authenticated {
     public function index() {
@@ -14,7 +13,8 @@ class Admin extends Authenticated {
     }
 
     public function bookIndex() {
-        View::renderTemplate('Admin/books/index.twig');
+        $books = Book::findAll();
+        View::renderTemplate('Admin/books/index.twig', ['books' => $books]);
     }
 
     public function bookDetail() {
@@ -26,8 +26,9 @@ class Admin extends Authenticated {
     }
 
     public function bookCreateNew() {
-        Configuration::instance(['cloud' => ['cloud_name' => 'dspnu4m0h', 'api_key' => '741638477628395', 'api_secret' => '8jZMZlNV8n-KoOabOP7O9A08rkw'], 'url' => ['secure' => true]]);
-        (new UploadApi())->upload($_POST['book_pages'][0]);
+        $bookId = Book::insertBook($_POST);
+        BookDetails::insertBookDetail($bookId, $_POST['page_link']);
+        $this->redirect('/admin/books');
     }
 
     protected function before() {

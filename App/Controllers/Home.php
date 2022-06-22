@@ -22,6 +22,6 @@ class Home extends Controller {
     public function indexAction() {
         $book = new Book();
         $allbook = $book->findAll();
-        View::renderTemplate('Home/index.twig', ['groups' => [1, 2, 3], 'books' => $allbook]);
+        View::renderTemplate('Home/index.twig', ['books' => $allbook]);
     }
 }

@@ -16,7 +16,7 @@ class Books {
         $array = explode('/', $_SERVER['REQUEST_URI']);
         $bookId = end($array);
         $_book = $book->findByID($bookId);
-        $allbook = $book->findAll();
+        $allbook = Book::findAll();
         View::renderTemplate('Books/detail.twig',
             ['groups' => [1, 2, 3], 'name' => $_book->getName(),
                 'description' => $_book->description,
