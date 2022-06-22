@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Cart;
 use App\Models\User;
 use App\Models\RememberedLogin;
 
@@ -98,6 +99,12 @@ class Auth
         } else {
 
             return static::loginFromRememberCookie();
+        }
+    }
+
+    public static function getNumCartItems() {
+        if(isset($_SESSION['user_id'])) {
+            return Cart::numCartItems($_SESSION['user_id']);
         }
     }
 
