@@ -1,0 +1,46 @@
+{% extends 'admin.twig' %}
+
+{% block head %}
+    <title>Admin Book</title>
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 fs-3 font-weight-bold text-primary">Thông tin sách</h6>
+            <a href="/admin/books/create" class="btn btn-success px-5">Thêm sách</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Overview</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><a href="#">RA0449</a></td>
+                    <td>Udin Wayang</td>
+                    <td>Nasi Padang</td>
+                    <td>Overview</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-warning me-3 px-2">
+                            <i class="fa-solid fa-edit"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-light px-2">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

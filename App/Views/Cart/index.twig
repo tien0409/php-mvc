@@ -8,21 +8,49 @@
     <div class="container mt-5">
         <h2 class="fs-2 fw-bold">Giỏ hàng</h2>
         <hr>
-        <div class="mt-4">
-            <h4>Đơn hàng của bạn</h4>
-            <div>0 sản phẩm trong giỏ hàng</div>
-            <div class="cart__list">
-                <div class="cart__item d-flex g-1">
-                    <img width="200" height="140" src="/images/course-image-test.jpg" alt="">
-                    <div>
-                        <h5>Khoa hoc name</h5>
-                        <p>description</p>
+        <div class="mt-4 row gap-4 flex-nowrap">
+            <div class="col col-8">
+
+                <h4>Đơn hàng của bạn</h4>
+                <div>0 sản phẩm trong giỏ hàng</div>
+                <div class="cart__list mt-3 d-flex flex-column">
+                    <div class="cart__item d-flex mb-3 gap-3 border shadow-sm py-3 px-4">
+                        <img width="180" height="110" class="rounded-3" src="/images/course-image-test.jpg" alt="">
+                        <div class="flex-grow-1">
+                            <h5>Khoa hoc name</h5>
+                            <p>description</p>
+                            <div class="text-danger fw-bolder fs-4 text-end">300000</div>
+                        </div>
                     </div>
+                    <div class="cart__item d-flex mb-3 gap-3 border shadow-sm py-3 px-4">
+                        <img width="180" height="110" class="rounded-3" src="/images/course-image-test.jpg" alt="">
+                        <div class="flex-grow-1">
+                            <h5>Khoa hoc name</h5>
+                            <p>description</p>
+                            <div class="text-danger fw-bolder fs-4 text-end">300000</div>
+                        </div>
+                    </div>
+                    <div class="cart__item d-flex mb-3 gap-3 border shadow-sm py-3 px-4">
+                        <img width="180" height="110" class="rounded-3" src="/images/course-image-test.jpg" alt="">
+                        <div class="flex-grow-1">
+                            <h5>Khoa hoc name</h5>
+                            <p>description</p>
+                            <div class="text-danger fw-bolder fs-4 text-end">300000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-4 ">
+                <div class="card__cart p-4 rounded-3 shadow-sm" style="background: #ebf1fb">
+                    <h4>Tổng cộng ({{ num_cart_items }})</h4>
+                    <span class="mt-2 fs-3 fw-bold text-danger">4000000đ</span>
+                    <a href="/order/create" class="mt-4 btn btn-primary w-100">Tiến hành thanh toán</a>
                 </div>
             </div>
         </div>
 
-        <div class="courses__related">
+        <div class="courses__related mt-5">
             <div class="group">
                 <div class="group__info">
                     <h4>Những cuốn sách cùng chủ đề</h4>

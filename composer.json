@@ -3,7 +3,8 @@
     "twig/twig": "~2.0",
     "ext-mysqli": "*",
     "ext-pdo": "*",
-    "mailgun/mailgun-php": "^3.5"
+    "mailgun/mailgun-php": "^3.5",
+    "cloudinary/cloudinary_php": "^2.7"
   },
   "autoload": {
     "psr-4": {

@@ -253,7 +253,15 @@ class User extends Model {
             $stmt->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
             $stmt->bindValue(':activation_hash', $hashed_token, PDO::PARAM_STR);
 
-            return $stmt->execute();
+            $stmt->execute();
+
+            $user_id = $db->lastInsertId();
+            $sql = 'INSERT INTO Carts (user_id) VALUES (:user_id)';
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
         }
 
         return false;

@@ -43,10 +43,18 @@ $router->add('books', ['controller' => 'Books', 'action' => 'index']);
 $router->add('books/detail/\d+', ['controller' => 'Books', 'action' => 'detail']);
 $router->add('books/detail/\d+/read', ['controller' => 'Books', 'action' => 'read']);
 $router->add('cart', ['controller' => 'Cart', 'action' => 'index']);
+$router->add('cart/add/\d+', ['controller' => 'Cart', 'action' => 'addCartItem']);
 $router->add('profile', ['controller' => 'Profile', 'action' => 'index']);
 $router->add('find/\w+', ['controller' => 'FindBook', 'action' => 'index']);
 //$router->add('login', ['controller' => 'Login', 'action' => 'new']);
 //$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
+$router->add('admin', ['controller' => 'Admin', 'action' => 'index']);
+$router->add('admin/books', ['controller' => 'Admin', 'action' => 'bookIndex']);
+$router->add('admin/books/create', ['controller' => 'Admin', 'action' => 'bookCreate']);
+$router->add('admin/books/create/new', ['controller' => 'Admin', 'action' => 'bookCreateNew']);
+$router->add('admin/books/edit/\d+', ['controller' => 'Admin', 'action' => 'bookDetail']);
+
+$router->add('upload', ['controller' => 'Upload', 'action' => 'index']);
 //$router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' => 'reset']);
 //$router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'action' => 'activate']);
 $router->add('{controller}/{action}');

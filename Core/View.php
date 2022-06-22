@@ -63,6 +63,7 @@ class View
             $loader = new \Twig_Loader_Filesystem(dirname(__DIR__) . '/App/Views');
             $twig = new \Twig_Environment($loader);
             $twig->addGlobal('current_user', Auth::getUser());
+            $twig->addGlobal('num_cart_items', Auth::getNumCartItems());
             $twig->addGlobal('flash_messages', Flash::getMessages());
         }
 
