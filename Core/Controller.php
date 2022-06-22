@@ -29,7 +29,6 @@ abstract class Controller
     public function __construct($route_params)
     {
         $this->route_params = $route_params;
-        $this->db = new Database();
     }
 
     /**
@@ -94,16 +93,16 @@ abstract class Controller
      *
      * @return void
      */
-//    public function requireLogin()
-//    {
-//        if (! Auth::getUser()) {
-//
-//            //Flash::addMessage('Please login to access that page');
-//            Flash::addMessage('Please login to access that page', Flash::INFO);
-//
-//            Auth::rememberRequestedPage();
-//
-//            $this->redirect('/login');
-//        }
-//    }
+    public function requireLogin()
+    {
+        if (! Auth::getUser()) {
+
+            //Flash::addMessage('Please login to access that page');
+            Flash::addMessage('Please login to access that page', Flash::INFO);
+
+            Auth::rememberRequestedPage();
+
+            $this->redirect('/login');
+        }
+    }
 }

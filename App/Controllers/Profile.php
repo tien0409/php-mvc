@@ -2,21 +2,17 @@
 
 namespace App\Controllers;
 
-use Core\Controller;
+use App\Auth;
 use Core\View;
 
-class Profile extends Controller {
+class Profile extends Authenticated {
     public function index() {
-        try {
+        $this->before();
+        View::renderTemplate('Profile/index.twig', ['user' => $this->user]);
+    }
 
-//            $instance = $this->db->connect();
-//            $query = $instance->prepare("SELECT * FROM User");
-//            $query->execute();
-//            $res = $query->get_result();
-            View::renderTemplate('Profile/index.twig');
-        } catch(\Exception $e) {
-            $this->db->close();
-            throw $e;
-        }
+    protected function before() {
+        parent::before();
+        $this->user = Auth::getUser();
     }
 }
