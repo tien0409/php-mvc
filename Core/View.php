@@ -2,6 +2,9 @@
 
 namespace Core;
 
+use App\Auth;
+use App\Flash;
+
 /**
  * View
  *
@@ -59,8 +62,8 @@ class View
         if ($twig === null) {
             $loader = new \Twig_Loader_Filesystem(dirname(__DIR__) . '/App/Views');
             $twig = new \Twig_Environment($loader);
-//            $twig->addGlobal('current_user', \App\Auth::getUser());
-//            $twig->addGlobal('flash_messages', \App\Flash::getMessages());
+            $twig->addGlobal('current_user', Auth::getUser());
+            $twig->addGlobal('flash_messages', Flash::getMessages());
         }
 
         return $twig->render($template, $args);
