@@ -131,14 +131,14 @@ class Book extends Model
         if ($id == null) {
             $id = $this->id;
         }
-        $sql = "SELECT * FROM books WHERE books.id = :id";
+        $sql = "SELECT * FROM Books WHERE id = :id";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":id", $id);
         $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
         $stmt->execute();
         $user = $stmt->fetch();
-        $sql = "SELECT * FROM bookdetails WHERE bookdetails.book_id = :id";
+        $sql = "SELECT * FROM BookDetails WHERE book_id = :id";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":id", $id);
         $stmt->setFetchMode(PDO::FETCH_CLASS, BookDetails::class);
@@ -149,7 +149,7 @@ class Book extends Model
 
     public function findByName($name) {
         $name = "%" . $name . "%";
-        $sql = "SELECT * FROM books WHERE books.name LIKE :name";
+        $sql = "SELECT * FROM Books WHERE name LIKE :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":name", $name);
@@ -157,7 +157,7 @@ class Book extends Model
         $stmt->execute();
         $users = $stmt->fetchAll();
         foreach ($users as $user) {
-            $sql = "SELECT * FROM bookdetails WHERE bookdetails.book_id = :id";
+            $sql = "SELECT * FROM BookDetails WHERE book_id = :id";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(":id", $user->getId());
             $stmt->setFetchMode(PDO::FETCH_CLASS, BookDetails::class);
@@ -168,14 +168,14 @@ class Book extends Model
     }
 
     public function findAll() {
-        $sql = "SELECT * FROM books";
+        $sql = "SELECT * FROM Books";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
         $stmt->execute();
         $books = $stmt->fetchAll();
         foreach ($books as $book) {
-            $sql = "SELECT * FROM bookdetails WHERE bookdetails.book_id = :id";
+            $sql = "SELECT * FROM BookDetails WHERE book_id = :id";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(":id", $book->getId());
             $stmt->setFetchMode(PDO::FETCH_CLASS, BookDetails::class);
