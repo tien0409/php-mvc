@@ -44,6 +44,7 @@ $router->add('books/detail/\d+', ['controller' => 'Books', 'action' => 'detail']
 $router->add('books/detail/\d+/read', ['controller' => 'Books', 'action' => 'read']);
 $router->add('cart', ['controller' => 'Cart', 'action' => 'index']);
 $router->add('profile', ['controller' => 'Profile', 'action' => 'index']);
+$router->add('find/\w+', ['controller' => 'FindBook', 'action' => 'index']);
 //$router->add('login', ['controller' => 'Login', 'action' => 'new']);
 //$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
 //$router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' => 'reset']);
