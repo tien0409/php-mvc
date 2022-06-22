@@ -41,7 +41,7 @@ class Flash
     public static function addMessage($message, $type = 'success')
     {
         // Create array in the session if it doesn't already exist
-        if (! isset($_SESSION['flash_notifications'])) {
+        if (!isset($_SESSION['flash_notifications'])) {
             $_SESSION['flash_notifications'] = [];
         }
 
