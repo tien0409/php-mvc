@@ -10,7 +10,7 @@
     <div id="carouselExampleControls" class="carousel slide h-screen-50" data-bs-ride="carousel">
         <div class="carousel-inner h-100">
             <div class="carousel-item active h-100">
-                <img src="/images/home-banner.jpg" class="image" alt="...">
+                <img src="https://images.unsplash.com/photo-1576872381149-7847515ce5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" class="image" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -27,24 +27,16 @@
 
     <div class="mt-5">
         <div class="container">
-            {% for group in groups %}
-                <div class="group">
-                    <div class="group__info">
-                        <h2 class="group__title">HightLighted</h2>
-                        <a href="/abc">Xem thêm</a>
-                    </div>
-
                     <div class="row g-5">
                         {% for book in books %}
-                            <a href="/books/detail/2" class="course__wrapper col col-12 col-sm-6 col-md-3">
+                            <a href="/books/detail/{{ book.id }}" class="course__wrapper col col-12 col-sm-6 col-md-3">
                                 <div class="course">
-                                    <img src="/images/course-image-test.jpg" alt="course" class="img-fluid">
+                                    <img src="{{ book.link }}" alt="course" class="image">
                                     <div class="course__info">
-                                        <h3 class="course__name">Course Name</h3>
-                                        <p class="course__description">Description</p>
+                                        <h3 class="course__name">{{ book.name }}</h3>
+                                        <p class="course__description">{{ book.description }}</p>
                                         <div class="prices">
-                                            <div class="price--discount">500000đ</div>
-                                            <div class="price text-primary">200000đ</div>
+                                            <div class="price text-primary">{{ book.price }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +44,6 @@
                         {% endfor %}
                     </div>
                 </div>
-            {% endfor %}
         </div>
     </div>
 

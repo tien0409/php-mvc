@@ -13,13 +13,13 @@ class Config {
      * Database host
      * @var string
      */
-    const DB_HOST = 'localhost';
+    const DB_HOST = 'localhost:3306';
 
     /**
      * Database name
      * @var string
      */
-    const DB_NAME = 'QLMS';
+    const DB_NAME = 'qlms';
 
     /**
      * Database user
@@ -31,7 +31,7 @@ class Config {
      * Database password
      * @var string
      */
-    const DB_PASSWORD = 'leanhtien';
+    const DB_PASSWORD = '3222513';
 
     /**
      * Show or hide error messages on screen

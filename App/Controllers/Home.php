@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Book;
 use Core\Controller;
 use Core\View;
 use App\Auth;
@@ -19,6 +20,8 @@ class Home extends Controller {
      * @return void
      */
     public function indexAction() {
-        View::renderTemplate('Home/index.twig', ['groups' => [1, 2, 3], 'books' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 2]]);
+        $book = new Book();
+        $allbook = $book->findAll();
+        View::renderTemplate('Home/index.twig', ['groups' => [1, 2, 3], 'books' => $allbook]);
     }
 }
