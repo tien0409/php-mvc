@@ -28,17 +28,22 @@
                 <a href="/cart">
                     <i class="fa-solid fa-bag-shopping fs-4 mx-3"></i>
                 </a>
-                {#                <button class="btn btn-primary mx-2">Đăng ký</button> #}
-                {#                <button class="btn btn-danger">Đăng nhập</button> #}
-                <div class="dropdown">
-                    <img width="42" height="42" class="rounded-pill dropdown-toggle" data-bs-toggle="dropdown"
-                         src="/images/course-image-test.jpg" alt="">
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/profile">Thông tin cá nhân</a></li>
-                        <li><a class="dropdown-item" href="/profile/history">Lịch sử giao dịch</a></li>
-                        <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
-                    </ul>
-                </div>
+                {% if not current_user %}
+                    <a href="/signup" class="btn btn-primary mx-2">Đăng ký</a>
+                    <a href="/login" class="btn btn-danger">Đăng nhập</a>
+                {% endif %}
+                {% if current_user %}
+                    <div class="dropdown">
+                        <img style="cursor: pointer" width="42" height="42" class="rounded-pill dropdown-toggle"
+                             data-bs-toggle="dropdown"
+                             src="/images/course-image-test.jpg" alt="">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="/profile">Thông tin cá nhân</a></li>
+                            <li><a class="dropdown-item" href="/profile/history">Lịch sử giao dịch</a></li>
+                            <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </nav>

@@ -35,6 +35,7 @@ $router = new Router();
 // Add the routes
 $router->add('login', ['controller' => 'Login', 'action' => 'index']);
 $router->add('login/new', ['controller' => 'Login', 'action' => 'new']);
+$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
 $router->add('signup', ['controller' => 'Signup', 'action' => 'index']);
 $router->add('signup/create', ['controller' => 'Signup', 'action' => 'create']);
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
