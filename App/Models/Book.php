@@ -148,10 +148,8 @@ class Book extends Model
     }
 
     public function findByName($name) {
-        if ($name == null) {
-            $name = $this->name;
-        }
-        $sql = "SELECT * FROM book WHERE book.name LIKE %:name%";
+        $name = "%" . $name . "%";
+        $sql = "SELECT * FROM book WHERE book.name LIKE :name";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(":name", $name);

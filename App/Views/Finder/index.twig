@@ -1,0 +1,30 @@
+{% extends 'base.twig' %}
+{% block head %}
+    <title>{{ book_name }}</title>
+    <link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+{% block body %}
+
+    <div class="mt-5">
+        <div class="container">
+                    <div class="row g-5">
+                        {% for book in books %}
+                            <a href="/books/detail/{{ book.id }}" class="course__wrapper col col-12 col-sm-6 col-md-3">
+                                <div class="course">
+                                    <img src="{{ book.link }}" alt="course" class="image">
+                                    <div class="course__info">
+                                        <h3 class="course__name">{{ book.name }}</h3>
+                                        <p class="course__description">{{ book.description }}</p>
+                                        <div class="prices">
+                                            <div class="price text-primary">{{ book.price }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
