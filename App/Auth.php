@@ -26,6 +26,7 @@ class Auth
         session_regenerate_id(true);
 
         $_SESSION['user_id'] = $user->id;
+        $_SESSION['roleId'] = $user->roleId;
 
         if ($remember_me) {
             if ($user->rememberLogin()) {
@@ -100,6 +101,13 @@ class Auth
 
             return static::loginFromRememberCookie();
         }
+    }
+
+    public static function isAdmin() {
+        if(isset($_SESSION['roleId']) && $_SESSION['roleId'] === 2) {
+            return true;
+        }
+
     }
 
     public static function getNumCartItems() {

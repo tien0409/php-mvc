@@ -20,5 +20,9 @@ abstract class Authenticated extends Controller
     {
         $this->requireLogin();
     }
+
+    protected function checkAdmin() {
+        $this->isAdmin();
+    }
 }
 
