@@ -56,6 +56,17 @@ class User extends Model {
         return false;
     }
 
+    public static function findByUsername($username) {
+        $sql = 'SELECT * FROM Users where username = :username';
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR_CHAR);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
     /**
      * Find a user model by ID
      *
@@ -74,15 +85,17 @@ class User extends Model {
         return $stmt->fetch();
     }
 
-    public static function findByUsername($username) {
-        $sql = 'SELECT * FROM Users where username = :username';
+    public static function updateProfile($id, $data) {
+        $password_hash = password_hash($data['password'], PASSWORD_DEFAULT);
+        $sql = 'UPDATE Users SET first_name = :first_name, last_name = :last_name, password_hash = :password_hash WHERE id = :id';
         $db = static::getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR_CHAR);
+        $stmt->bindValue(':first_name', $data['first_name'], PDO::PARAM_STR_CHAR);
+        $stmt->bindValue(':last_name', $data['last_name'], PDO::PARAM_STR_CHAR);
+        $stmt->bindValue(':password_hash', $password_hash, PDO::PARAM_STR_CHAR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
-        $stmt->execute();
-
-        return $stmt->fetch();
+        return $stmt->execute();
     }
 
     /**
@@ -415,49 +428,49 @@ class User extends Model {
      *
      * @return boolean  True if the data was updated, false otherwise
      */
-    public function updateProfile($data) {
-        $this->name = $data['name'];
-        $this->email = $data['email'];
-
-        // Only validate and update the password if a value provided
-        if ($data['password'] != '') {
-            $this->password = $data['password'];
-        }
-
-        $this->validate();
-
-        if (empty($this->errors)) {
-
-            $sql = 'UPDATE users
-                    SET name = :name,
-                        email = :email';
-
-            // Add password if it's set
-            if (isset($this->password)) {
-                $sql .= ', password_hash = :password_hash';
-            }
-
-            $sql .= "\nWHERE id = :id";
-
-
-            $db = static::getDB();
-            $stmt = $db->prepare($sql);
-
-            $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
-            $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
-            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-
-            // Add password if it's set
-            if (isset($this->password)) {
-
-                $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
-                $stmt->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
-
-            }
-
-            return $stmt->execute();
-        }
-
-        return false;
-    }
+//    public function updateProfile($data) {
+//        $this->name = $data['name'];
+//        $this->email = $data['email'];
+//
+//        // Only validate and update the password if a value provided
+//        if ($data['password'] != '') {
+//            $this->password = $data['password'];
+//        }
+//
+//        $this->validate();
+//
+//        if (empty($this->errors)) {
+//
+//            $sql = 'UPDATE users
+//                    SET name = :name,
+//                        email = :email';
+//
+//            // Add password if it's set
+//            if (isset($this->password)) {
+//                $sql .= ', password_hash = :password_hash';
+//            }
+//
+//            $sql .= "\nWHERE id = :id";
+//
+//
+//            $db = static::getDB();
+//            $stmt = $db->prepare($sql);
+//
+//            $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
+//            $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
+//            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+//
+//            // Add password if it's set
+//            if (isset($this->password)) {
+//
+//                $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
+//                $stmt->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
+//
+//            }
+//
+//            return $stmt->execute();
+//        }
+//
+//        return false;
+//    }
 }

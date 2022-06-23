@@ -42,7 +42,9 @@
                              data-bs-toggle="dropdown"
                              src="/images/course-image-test.jpg" alt="">
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="/admin">Admin</a></li>
+                            {% if current_user.roleId == 2 %}
+                                <li><a class="dropdown-item" href="/admin/books">Admin</a></li>
+                            {% endif %}
                             <li><a class="dropdown-item" href="/profile">Thông tin cá nhân</a></li>
                             <li><a class="dropdown-item" href="/profile/history">Lịch sử giao dịch</a></li>
                             <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>

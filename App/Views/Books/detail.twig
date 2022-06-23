@@ -22,7 +22,7 @@
             </div>
             <div class="col-4">
                 <div class="card">
-                    <img src="{{ banner_link }}" class="card-img-top" alt="...">
+                    <img style="aspect-ratio: 16/9" src="{{ banner_link }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="w-100 d-flex gap-3 mt-4">
                             <a href="{{ "/books/read/#{id}" }}" class="btn__add-to-cart w-100 btn btn-danger">Đọc sách</a>
@@ -44,7 +44,7 @@
                             <div class="swiper-slide">
                                 <a href="/books/detail/{{ book.id }}" class="course__wrapper col col-12 col-sm-6 col-md-3">
                                     <div class="course">
-                                        <img src="{{ book.link }}" alt="course" class="img-fluid">
+                                        <img src="{{ book.link }}" alt="course" class="image" style="aspect-ratio: 16/9">
                                         <div class="course__info">
                                             <h3 class="course__name">{{ book.name }}</h3>
                                             <p class="course__description">{{ book.description | raw }}</p>

@@ -80,11 +80,19 @@ abstract class Controller {
         if (!Auth::getUser()) {
 
             //Flash::addMessage('Please login to access that page');
-            Flash::addMessage('Please login to access that page', Flash::INFO);
+            Flash::addMessage('Vui lòng đăng nhập', Flash::INFO);
 
             Auth::rememberRequestedPage();
 
             $this->redirect('/login');
+        }
+    }
+    
+    public function isAdmin() {
+        if (Auth::getUser()->roleId !== 2) {
+            Flash::addMessage('Không có quyền truy nhập', Flash::INFO);
+
+            $this->redirect('/');
         }
     }
 

@@ -2,6 +2,6 @@
     background-color: #ebf1fb;
 }
 
-.sidebar {
+.sidebar_profile {
     height: calc(100vh - var(--header-height));
 }
