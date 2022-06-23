@@ -51,6 +51,6 @@ $(document).ready(function () {
                 overview: $('#overview').val()
             }
         })
-        const data = await response.json()
+        window.location.href = '/admin/books'
     })
 });

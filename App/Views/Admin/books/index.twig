@@ -5,50 +5,42 @@
 {% endblock %}
 
 {% block body %}
-<div class="card h-screen-50">
-    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 fs-3 font-weight-bold text-primary">Thông tin sách</h6>
-        <a href="/admin/books/create" class="btn btn-success px-5">Thêm sách</a>
+    <div class="card h-screen-50">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 fs-3 font-weight-bold text-primary">Thông tin sách</h6>
+            <a href="/admin/books/create" class="btn btn-success px-5">Thêm sách</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Overview</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td><a href="/admin/books/edit/{{ book.id }}">{{ book.id }}</a></td>
+                        <td>{{ book.name }}</td>
+                        <td>{{ book.description |raw }}</td>
+                        <td >{{ book.overview | raw }}</td>
+                        <td>
+                            <a href="/admin/books/edit/{{ book.id }}" class="btn btn-sm btn-warning me-3 px-2">
+                                <i class="fa-solid fa-edit"></i>
+                            </a>
+                            <a href="/admin/books/delete/{{ book.id }}" class="btn btn-sm btn-danger me-3 px-2">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="table-responsive">
-        <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Overview</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for book in books %}
-            <tr>
-                <td><a href="/admin/books/${{ book.id }}">{{ book.id }}</a></td>
-                <td>{{ book.name }}</td>
-                <td>{{ book.description }}</td>
-                <td>{{ book.overview }}</td>
-                <td>
-                    <a href="/admin/books/${{ book.id }}" class="btn btn-sm btn-warning me-3 px-2">
-                        <i class="fa-solid fa-edit"></i>
-                    </a>
-                    <div class="dropdown d-inline-block ">
-                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="/ad">Xóa sách</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
 {% endblock %}
 
 {% block script %}

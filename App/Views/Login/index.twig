@@ -6,7 +6,7 @@
 
 {% block body %}
     <div class="w-40 h-100">
-        <img src="/images/login-banner.png" alt="" class="image">
+        <img src="/images/login-banner.png" alt="" class="image" style="aspect-ratio: unset">
     </div>
     <div class="flex-grow-1 py-5 px-3 bg-white">
         <div class="mx-auto w-75">
@@ -30,8 +30,8 @@
                     <input type="password" class="form-control" name="password" id="password">
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" name="remember_me" for="exampleCheck1">Lưu mật khẩu</label>
+                    <input type="checkbox" class="form-check-input" name="remember_me" {% if remember_me %} checked="checked"{% endif %} id="exampleCheck1">
+                    <label class="form-check-label"  for="exampleCheck1">Lưu mật khẩu</label>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 btn-lg">Đăng nhập</button>
             </form>

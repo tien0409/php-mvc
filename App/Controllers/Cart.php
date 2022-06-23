@@ -16,7 +16,7 @@ class Cart extends Controller {
         $bookId = end($array);
         if (\App\Models\Cart::addCartItem($bookId) === 0) {
             Flash::addMessage('Sản phẩm đã tồn tại trong giả hàng của bạn.', Flash::SUCCESS);
-        } elseif (\App\Models\Cart::addCartItem()) {
+        } elseif (\App\Models\Cart::addCartItem($bookId )) {
             Flash::addMessage('Thêm sản phẩm vào giỏ hàng thành công.', Flash::SUCCESS);
         } else {
             Flash::addMessage('Thêm sản phẩm vào giỏ hàng thất bại.', Flash::WARNING);

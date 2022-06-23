@@ -35,6 +35,9 @@
                                     <div class="course__info">
                                         <h3 class="course__name">{{ book.name }}</h3>
                                         <p class="course__description">{{ book.description | raw }}</p>
+                                        <div class="prices d-flex justify-content-end">
+                                            <div class="price text-primary fs-4 fw-bolder">{{ book.price }}đ</div>
+                                        </div>
                                     </div>
                                 </div>
                             </a>

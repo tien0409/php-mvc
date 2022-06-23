@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Flash;
 use Core\Controller;
 use \Core\View;
 use \App\Models\User;
@@ -34,6 +35,7 @@ class Signup extends Controller
         $user = new User($_POST);
 
         if ($user->save()) {
+            Flash::addMessage('Đăng ký thành công', Flash::WARNING);
             $this->redirect('/login');
 
         } else {

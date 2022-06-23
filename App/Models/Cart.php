@@ -36,7 +36,8 @@ class Cart extends Model {
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':cart_id', $cart['id'], PDO::PARAM_INT);
         $stmt->bindValue(':book_id', $bookId, PDO::PARAM_INT);
-        if($stmt->execute()) {
+        $stmt->execute();
+        if(count($stmt->fetchAll()) !== 0) {
             return 0;
         }
 

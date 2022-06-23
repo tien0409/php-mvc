@@ -21,6 +21,17 @@ class BookDetails extends Model {
         }
     }
 
+    public static function updateBookDetail($bookId, $page_link) {
+        foreach ($page_link as $link) {
+//            $sql = 'UPDATE BookDetails SET (:book_id, :page_link);';
+//            $db = static::getDB();
+//            $stmt = $db->prepare($sql);
+//            $stmt->bindValue(":book_id", $bookId, PDO::PARAM_INT);
+//            $stmt->bindValue(":page_link", $link['url'], PDO::PARAM_STR);
+//            $stmt->execute();
+        }
+    }
+
     /**
      * @return mixed
      */
